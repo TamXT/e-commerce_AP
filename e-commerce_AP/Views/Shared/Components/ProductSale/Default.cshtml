@@ -1,0 +1,50 @@
+﻿@model List<e_commerce_AP.Models.EF.TbProduct>
+
+<div class="section-title product__discount__title">
+    <h2>Sale Off</h2>
+</div>
+<div class="row">
+    <div class="product__discount__slider owl-carousel">
+        @for (var i = 0; i < Model.Count; i += 3)
+        {
+        
+                @for (var j = i; j < i + 3 && j < Model.Count; j++)
+                {
+            
+                    var product = Model[j];
+
+                    <div class="col-lg-4">
+                        <div class="product__discount__item">
+                            <div class="product__discount__item__pic set-bg"
+                                 data-setbg="@Url.Content(product.Image)">
+                          
+                                <ul class="product__item__pic__hover">
+                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="product__discount__item__text">
+                                <span>@product.ProductCategory.Title</span>
+                                <h5><a href="@Url.Action("Index", "ProductDetails", new { id = product.Id })">@product.Title</a></h5>
+                                @if (product.PriceSale > 0)
+                                {
+                                    <div class="product__item__price">
+                                    @product.PriceSale
+                                    <span>@product.Price.ToString("C0")</span>
+                                    </div>
+                                }
+                                else
+                                {
+                                <span>@product.Price.ToString("C0")</span>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+
+        
+        }
+    </div>
+
+</div>

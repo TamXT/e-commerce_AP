@@ -1,0 +1,6 @@
+﻿@model IEnumerable<e_commerce_AP.Models.EF.TbProductCategory>
+
+    @foreach (var category in Model)
+    {
+    <li><a asp-action="Index" asp-controller="Category" asp-route-SeoTitle="@category.SeoTitle">@category.Title</a></li>
+    }

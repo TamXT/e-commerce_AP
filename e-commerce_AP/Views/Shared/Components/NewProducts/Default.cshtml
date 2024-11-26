@@ -1,0 +1,48 @@
+﻿@model List<e_commerce_AP.Models.EF.TbProduct>
+
+
+
+<h4>Latest Products</h4>
+<div class="latest-product__slider owl-carousel">
+    <div class="latest-prdouct__slider__item">
+        @for (var i = 0; i < Model.Count; i += 4)
+        {
+            @for (var j = i; j < i + 1 && j < Model.Count; j++)
+            {
+                var product = Model[j];
+                <a href="#" class="latest-product__item">
+                    <div class="latest-product__item__pic">
+                        <img src="@Url.Content(product.Image)" alt="">
+                    </div>
+                    <div class="latest-product__item__text">
+                        <h6>@product.Title</h6>
+                        <span>@product.Price.ToString("C0")</span>
+                    </div>
+                </a>
+            }
+        }
+        
+        
+    </div>
+    <div class="latest-prdouct__slider__item">
+        @for (var i = 0; i < Model.Count; i += 4)
+        {
+            @for (var j = i; j < i + 1 && j < Model.Count; j++)
+            {
+                var product = Model[j];
+                <a href="#" class="latest-product__item">
+                    <div class="latest-product__item__pic">
+                        <img width="110px" height="110px" src="@Url.Content(product.Image)" alt="">
+                    </div>
+                    <div class="latest-product__item__text">
+                        <h6>@product.Title</h6>
+                        <span>@product.Price.ToString("C0")</span>
+                    </div>
+                </a>
+            }
+        }
+
+
+    </div>
+   
+</div>

@@ -1,0 +1,21 @@
+﻿@model IEnumerable<e_commerce_AP.Models.EF.TbProductCategory>
+
+<!-- Categories Section Begin -->
+<section class="categories">
+    <div class="container">
+        <div class="row">
+            <div class="categories__slider owl-carousel">
+                @foreach (var category in Model)
+                {
+                    <div class="col-lg-3">
+                        <div class="categories__item set-bg" data-setbg="~/images/hero/banner.jpg">
+                            <img src="@Url.Content("~/images/hero/banner.jpg")" alt="@category.Title" />
+                            <h5><a href="#">@category.Title</a></h5>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Categories Section End -->
